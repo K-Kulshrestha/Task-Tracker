@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+</head>
+<div id="progress-bar">
+    <div id="completion-bar"></div>
+</div>
+<body>
+    <h1>PROGRESS</h1>
+     <div id="background-light"></div>
+     <button id="play-button">&#9654;</button>
+    <div id="task-container">
+        <h1>TASKS</h1>
+        <input type="text" id="task-input" placeholder="Add a new task...">
+        <button onclick="addTask()">Add Task</button>
+        <ul id="task-list"></ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

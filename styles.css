@@ -1,0 +1,100 @@
+/* styles.css */
+
+body {
+    background-color: #000;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    align-items: center;
+    text-align: center;
+}
+
+h1{
+    text-align: center;
+    color: #fff;
+}
+
+#play-button{
+    background-color: #fff;
+    color: #000;
+    height: 40px;
+    width: 100px;
+    border: none;
+    border-radius: 30px;
+    margin: 20px;
+}
+
+#background-light {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Place it behind other elements */
+}
+
+
+#task-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+}
+
+#task-input {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: none;
+}
+
+#task-list {
+    list-style: none;
+    padding: 0;
+}
+
+.task-item {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #000;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#progress-bar {
+    width: 100%;
+    margin: 20px auto;
+    height: 20px;
+    background-color: #ccc;
+    position: relative;
+    border-radius: 10px;
+}
+
+#completion-bar {
+    height: 100%;
+    background-color: #4caf50;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+.completed {
+    background-color: #4CAF50; /* Green color for completed tasks */
+    color: #fff; /* Text color for completed tasks */
+}
+
+#task-container button{
+    background-color: #000;
+    color: #fff;
+    height: 40px;
+    width: 100px;
+    border: none;
+    border-radius: 30px;
+    margin: 20px;
+}
