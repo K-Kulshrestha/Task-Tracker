@@ -4,27 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const taskInput = document.getElementById('task-input');
     const taskList = document.getElementById('task-list');
     const progressBar = document.getElementById('progress-bar');
-    const backgroundLight = document.getElementById("background-light");
 
-    function getRandomColor() {
-        const letters = "0123456789ABCDEF";
-        let color = "#";
-        for (let i = 0; i < 6; i++) {
-            color += letters[Math.floor(Math.random() * 16)];
-        }
-        return color;
-    }
-
-    function updateBackgroundLight() {
-        const randomColor = getRandomColor();
-        backgroundLight.style.backgroundColor = randomColor;
-    }
-
-    // Set up click event to randomize background light color
-    backgroundLight.addEventListener('click', function () {
-        updateBackgroundLight();
-    });
-
+    
     taskList.addEventListener('click', function (event) {
         const target = event.target;
 
@@ -32,10 +13,19 @@ document.addEventListener("DOMContentLoaded", function () {
             target.classList.toggle('completed');
             updateProgressBar();
         }
-    });
+
+                // Remove task when clicking the remove button
+            if (target.classList.contains('remove-btn')) {
+                    const taskItem = target.closest('.task-item');
+                    if (taskItem) {
+                        taskItem.remove();
+                        updateProgressBar();
+                    }
+                }
+            });
 
     // Particle.js initialization
-    particlesJS('background-light', {
+    particlesJS('main-container', {
         particles: {
             number: {
                 value: 80,
@@ -153,6 +143,13 @@ function addTask() {
         const taskItem = document.createElement('li');
         taskItem.className = 'task-item';
         taskItem.textContent = taskText;
+
+        // Add a remove button to each task
+        const removeButton = document.createElement('button');
+        removeButton.className = 'remove-btn';
+        removeButton.textContent = 'Remove';
+        taskItem.appendChild(removeButton);
+
         taskList.appendChild(taskItem);
 
         updateProgressBar();

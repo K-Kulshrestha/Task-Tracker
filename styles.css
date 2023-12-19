@@ -1,7 +1,7 @@
 /* styles.css */
 
 body {
-    background-color: #000;
+    background-color: black;
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
@@ -12,20 +12,20 @@ body {
 
 h1{
     text-align: center;
+    margin: 20px auto;
     color: #fff;
 }
 
 #play-button{
-    background-color: #fff;
-    color: #000;
-    height: 40px;
-    width: 100px;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    height: 30px;
+    width: 50px;
     border: none;
-    border-radius: 30px;
-    margin: 20px;
+    border-radius: 10px;
 }
 
-#background-light {
+#main-container {
     position: fixed;
     top: 0;
     left: 0;
@@ -42,6 +42,7 @@ h1{
     transform: translate(-50%, -50%);
     text-align: center;
     color: #fff;
+    max-height: 200px;
 }
 
 #task-input {
@@ -54,16 +55,21 @@ h1{
 #task-list {
     list-style: none;
     padding: 0;
+    max-height: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
 }
 
 .task-item {
     margin: 10px 0;
     padding: 10px;
-    background-color: #000;
-    border-radius: 5px;
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 10px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
 }
 
 #progress-bar {
@@ -89,12 +95,50 @@ h1{
     color: #fff; /* Text color for completed tasks */
 }
 
-#task-container button{
-    background-color: #000;
+#add-btn{
+    background-color: rgba(241, 218, 9, 0.3);
     color: #fff;
     height: 40px;
     width: 100px;
-    border: none;
+    border: none;   
     border-radius: 30px;
-    margin: 20px;
+    margin-top: 20px;
+}
+
+.remove-btn{
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    height: 20px;
+    width: fit-content;
+    border: none;   
+    border-radius: 30px;
+    margin:0;
+}
+
+/* Scrollbar Styles */
+#task-list::-webkit-scrollbar {
+    width: 10px; /* Set the width of the scrollbar */
+}
+
+/* Handle on hover */
+#task-list::-webkit-scrollbar-thumb:hover {
+    background: gold;
+}
+
+/* Handle */
+#task-list::-webkit-scrollbar-thumb {
+    background: #888; /* Set the color of the scrollbar handle */
+    border-radius: 5px; /* Set the border radius of the scrollbar handle */
+}
+
+/* Track */
+#task-list::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.2); /* Set the color of the scrollbar track */
+    border-radius: 5px; /* Set the border radius of the scrollbar track */
+}
+
+#timer{
+    color: #fff;
+    font-size: 30px;
+    margin: 5px;
 }
