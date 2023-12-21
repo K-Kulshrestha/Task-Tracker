@@ -13,15 +13,22 @@
     </div>
     <h1>PROGRESS</h1>
     <div id="main-container"></div>
-    <button id="play-button" onclick="togglePomodoro()">&#9654;</button>
+    <div id="introduction">
+    <h3>A task management system that allows you to effortlessly add and remove tasks.</h3>
+    <h3>Simply click on a task once completed, and the progress bar will update automatically.</h3>
+    <h3>Additionally, there's a built-in 30-minute timer for each task to help you stay on track.</h3>
+    </div>
+    <button id="play-button" onclick="togglePomodoro()">&#128472;</button>
     <div id="task-container">
+        <form id="tasksL" onsubmit="submitForm(event);">
         <h1>TASKS</h1>
         <input type="text" id="task-input" placeholder="Add a new task...">
         <button id="add-btn" onclick="addTask()">Add Task</button>
         <ul id="task-list"></ul>
+        </form>
     </div>
     <div id="pomodoro-container">
-        <div id="timer">30:00</div>
+        <div id="timer"></div>
         <div id="controls">
             <button id="start" onclick="startPomodoro()">Start</button>
             <button id="stop" onclick="stopPomodoro()">Stop</button>
@@ -30,6 +37,13 @@
     <audio id="audio-player" src="was-that-so-hard.mp3"></audio>
     <script src="script.js"></script>
     <script>
+        // Task list related functions
+        var form = document.getElementById('tasksL');
+        function submitForm(event) {
+        event.preventDefault();
+        return false;
+        }
+
         // Pomodoro clock related functions
         let timerInterval;
         let timerMinutes = 30;
@@ -40,27 +54,40 @@
             timerDisplay.textContent = `${timerMinutes}:${timerSeconds < 10 ? '0' : ''}${timerSeconds}`;
         }
 
-        function startPomodoro() {
-            timerInterval = setInterval(() => {
-                if (timerMinutes === 0 && timerSeconds === 0) {
-                    stopPomodoro();
-                    playTimerSound();
-                } else {
-                    if (timerSeconds === 0) {
-                        timerMinutes--;
-                        timerSeconds = 59;
-                    } else {
-                        timerSeconds--;
-                    }
-                    updateTimerDisplay();
-                }
-            }, 1000);
+        function stopPomodoro() {
+        clearInterval(timerInterval);
+        timerInterval = null;  // Reset the timerInterval variable
+        updateTimerDisplay();
         }
 
-        function stopPomodoro() {
-            clearInterval(timerInterval);
-            // timerMinutes = 25;
-            // timerSeconds = 0;
+        function startPomodoro() {
+            if (!timerInterval) {  // Check if the timer is not already running
+                timerInterval = setInterval(() => {
+                    if (timerMinutes === 0 && timerSeconds === 0) {
+                        stopPomodoro();
+                        playTimerSound();
+                    } else {
+                        if (timerSeconds === 0) {
+                            timerMinutes--;
+                            timerSeconds = 59;
+                        } else {
+                            timerSeconds--;
+                        }
+                        updateTimerDisplay();
+                    }
+                }, 1000);
+            }
+        }
+
+        // Function to get the remaining time in seconds
+        function getRemainingTimeInSeconds() {
+            return timerMinutes * 60 + timerSeconds;
+        }
+
+        // Function to set the remaining time from seconds
+        function setRemainingTimeFromSeconds(seconds) {
+            timerMinutes = Math.floor(seconds / 60);
+            timerSeconds = seconds % 60;
             updateTimerDisplay();
         }
 
