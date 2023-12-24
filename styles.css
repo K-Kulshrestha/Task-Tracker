@@ -20,7 +20,7 @@ h1{
 #introduction{
     text-align: center;
     margin: 20px auto;
-    color: rgba(255, 247, 0, 0.2);
+    color: rgba(255, 247, 0, 1);
     user-select: none;
 }
 

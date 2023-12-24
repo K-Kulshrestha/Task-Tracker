@@ -5,7 +5,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const taskList = document.getElementById('task-list');
     const progressBar = document.getElementById('progress-bar');
 
-    
+    // Add this variable at the beginning of your script
+    let lastFrameTime = Date.now();
+
     taskList.addEventListener('click', function (event) {
         const target = event.target;
 
@@ -131,6 +133,136 @@ document.addEventListener("DOMContentLoaded", function () {
         retina_detect: true
     });
 });
+
+// Add this function to check frame rate and reset particles if needed
+function checkFrameRate() {
+    const currentTime = Date.now();
+    const elapsed = currentTime - lastFrameTime;
+    lastFrameTime = currentTime;
+
+    // Calculate frames per second (fps)
+    const fps = 1000 / elapsed;
+
+    // Define a threshold for lag (adjust as needed)
+    const lagThreshold = 30;
+
+    // Check if frame rate is below the threshold
+    if (fps < lagThreshold) {
+        // Reset particles
+   // Particle.js initialization
+   particlesJS('main-container', {
+    particles: {
+        number: {
+            value: 80,
+            density: {
+                enable: true,
+                value_area: 800
+            }
+        },
+        color: {
+            value: '#ffffff'
+        },
+        shape: {
+            type: 'circle',
+            stroke: {
+                width: 0,
+                color: '#000000'
+            },
+            polygon: {
+                nb_sides: 5
+            }
+        },
+        opacity: {
+            value: 0.5,
+            random: true,
+            anim: {
+                enable: true,
+                speed: 1,
+                opacity_min: 0.1,
+                sync: false
+            }
+        },
+        size: {
+            value: 3,
+            random: true,
+            anim: {
+                enable: true,
+                speed: 2,
+                size_min: 0.1,
+                sync: false
+            }
+        },
+        line_linked: {
+            enable: true,
+            distance: 150,
+            color: '#ffffff',
+            opacity: 0.4,
+            width: 1
+        },
+        move: {
+            enable: true,
+            speed: 2,
+            direction: 'none',
+            random: false,
+            straight: false,
+            out_mode: 'out',
+            bounce: false,
+            attract: {
+                enable: false,
+                rotateX: 600,
+                rotateY: 1200
+            }
+        }
+    },
+    interactivity: {
+        detect_on: 'canvas',
+        events: {
+            onhover: {
+                enable: true,
+                mode: 'repulse'
+            },
+            onclick: {
+                enable: true,
+                mode: 'push'
+            },
+            resize: true
+        },
+        modes: {
+            grab: {
+                distance: 140,
+                line_linked: {
+                    opacity: 1
+                }
+            },
+            bubble: {
+                distance: 400,
+                size: 40,
+                duration: 2,
+                opacity: 8,
+                speed: 3
+            },
+            repulse: {
+                distance: 200,
+                duration: 0.4
+            },
+            push: {
+                particles_nb: 4
+            },
+            remove: {
+                particles_nb: 2
+            }
+        }
+    },
+    retina_detect: true
+});
+}
+
+    // Schedule the next check
+    requestAnimationFrame(checkFrameRate);
+}
+
+// Start monitoring frame rate
+checkFrameRate();
 
 function addTask() {
     const taskInput = document.getElementById('task-input');
