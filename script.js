@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
     particlesJS('main-container', {
         particles: {
             number: {
-                value: 80,
+                value: 160,
                 density: {
                     enable: true,
                     value_area: 800
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 value: '#ffffff'
             },
             shape: {
-                type: 'circle',
+                type: 'star',
                 stroke: {
                     width: 0,
                     color: '#000000'
@@ -50,17 +50,17 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             },
             opacity: {
-                value: 0.5,
+                value: 1,
                 random: true,
                 anim: {
                     enable: true,
-                    speed: 1,
+                    speed: 5,
                     opacity_min: 0.1,
                     sync: false
                 }
             },
             size: {
-                value: 3,
+                value: 6,
                 random: true,
                 anim: {
                     enable: true,
@@ -70,8 +70,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             },
             line_linked: {
-                enable: true,
-                distance: 150,
+                enable: false,
+                distance: 2000,
                 color: '#ffffff',
                 opacity: 0.4,
                 width: 1
@@ -96,11 +96,11 @@ document.addEventListener("DOMContentLoaded", function () {
             events: {
                 onhover: {
                     enable: true,
-                    mode: 'repulse'
+                    mode: 'bubble'
                 },
                 onclick: {
                     enable: true,
-                    mode: 'push'
+                    mode: 'repulse'
                 },
                 resize: true
             },
@@ -112,14 +112,14 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
                 },
                 bubble: {
-                    distance: 400,
-                    size: 40,
+                    distance: 250,
+                    size: 0,
                     duration: 2,
-                    opacity: 8,
-                    speed: 3
+                    opacity: 3,
+                    speed: 5
                 },
                 repulse: {
-                    distance: 200,
+                    distance: 400,
                     duration: 0.4
                 },
                 push: {
@@ -150,113 +150,113 @@ function checkFrameRate() {
     if (fps < lagThreshold) {
         // Reset particles
    // Particle.js initialization
-   particlesJS('main-container', {
-    particles: {
-        number: {
-            value: 80,
-            density: {
-                enable: true,
-                value_area: 800
-            }
-        },
-        color: {
-            value: '#ffffff'
-        },
-        shape: {
-            type: 'circle',
-            stroke: {
-                width: 0,
-                color: '#000000'
-            },
-            polygon: {
-                nb_sides: 5
-            }
-        },
-        opacity: {
-            value: 0.5,
-            random: true,
-            anim: {
-                enable: true,
-                speed: 1,
-                opacity_min: 0.1,
-                sync: false
-            }
-        },
-        size: {
-            value: 3,
-            random: true,
-            anim: {
-                enable: true,
-                speed: 2,
-                size_min: 0.1,
-                sync: false
-            }
-        },
-        line_linked: {
-            enable: true,
-            distance: 150,
-            color: '#ffffff',
-            opacity: 0.4,
-            width: 1
-        },
-        move: {
-            enable: true,
-            speed: 2,
-            direction: 'none',
-            random: false,
-            straight: false,
-            out_mode: 'out',
-            bounce: false,
-            attract: {
-                enable: false,
-                rotateX: 600,
-                rotateY: 1200
-            }
-        }
-    },
-    interactivity: {
-        detect_on: 'canvas',
-        events: {
-            onhover: {
-                enable: true,
-                mode: 'repulse'
-            },
-            onclick: {
-                enable: true,
-                mode: 'push'
-            },
-            resize: true
-        },
-        modes: {
-            grab: {
-                distance: 140,
-                line_linked: {
-                    opacity: 1
+      // Particle.js initialization
+      particlesJS('main-container', {
+        particles: {
+            number: {
+                value: 160,
+                density: {
+                    enable: true,
+                    value_area: 800
                 }
             },
-            bubble: {
-                distance: 400,
-                size: 40,
-                duration: 2,
-                opacity: 8,
-                speed: 3
+            color: {
+                value: '#ffffff'
             },
-            repulse: {
-                distance: 200,
-                duration: 0.4
+            shape: {
+                type: 'star',
+                stroke: {
+                    width: 0,
+                    color: '#000000'
+                },
+                polygon: {
+                    nb_sides: 5
+                }
             },
-            push: {
-                particles_nb: 4
+            opacity: {
+                value: 1,
+                random: true,
+                anim: {
+                    enable: true,
+                    speed: 5,
+                    opacity_min: 0.1,
+                    sync: false
+                }
             },
-            remove: {
-                particles_nb: 2
+            size: {
+                value: 6,
+                random: true,
+                anim: {
+                    enable: true,
+                    speed: 2,
+                    size_min: 0.1,
+                    sync: false
+                }
+            },
+            line_linked: {
+                enable: false,
+                distance: 2000,
+                color: '#ffffff',
+                opacity: 0.4,
+                width: 1
+            },
+            move: {
+                enable: true,
+                speed: 2,
+                direction: 'none',
+                random: false,
+                straight: false,
+                out_mode: 'out',
+                bounce: false,
+                attract: {
+                    enable: false,
+                    rotateX: 600,
+                    rotateY: 1200
+                }
             }
-        }
-    },
-    retina_detect: true
-});
+        },
+        interactivity: {
+            detect_on: 'canvas',
+            events: {
+                onhover: {
+                    enable: true,
+                    mode: 'bubble'
+                },
+                onclick: {
+                    enable: true,
+                    mode: 'repulse'
+                },
+                resize: true
+            },
+            modes: {
+                grab: {
+                    distance: 140,
+                    line_linked: {
+                        opacity: 1
+                    }
+                },
+                bubble: {
+                    distance: 250,
+                    size: 0,
+                    duration: 2,
+                    opacity: 3,
+                    speed: 5
+                },
+                repulse: {
+                    distance: 400,
+                    duration: 0.4
+                },
+                push: {
+                    particles_nb: 4
+                },
+                remove: {
+                    particles_nb: 2
+                }
+            }
+        },
+        retina_detect: true
+    });
 }
-
     // Schedule the next check
     requestAnimationFrame(checkFrameRate);
 }
@@ -270,7 +270,6 @@ function addTask() {
     const completionBar = document.getElementById('completion-bar');
     const taskText = taskInput.value.trim();
 
-
     if (taskText !== '') {
         const taskItem = document.createElement('li');
         taskItem.className = 'task-item';
@@ -280,11 +279,19 @@ function addTask() {
         const removeButton = document.createElement('button');
         removeButton.className = 'remove-btn';
         removeButton.textContent = 'Remove';
-        taskItem.appendChild(removeButton);
 
+        // Add a click event listener to the remove button
+        removeButton.addEventListener('click', function () {
+            taskItem.remove();
+            updateProgressBar();
+            saveProgress();
+        });
+
+        taskItem.appendChild(removeButton);
         taskList.appendChild(taskItem);
 
         updateProgressBar();
+        saveProgress();
 
         taskInput.value = ''; // Clear the input field
     }
@@ -293,6 +300,59 @@ function addTask() {
 function updateProgressBar() {
     const totalTasks = document.querySelectorAll('.task-item').length;
     const completedTasks = document.querySelectorAll('.task-item.completed').length;
-    const completionPercentage = (completedTasks / totalTasks) * 100;
+    const completionPercentage = totalTasks === 0 ? 0 : (completedTasks / totalTasks) * 100;
     completionBar.style.width = `${completionPercentage}%`;
+
+    saveProgress(); // Save progress after each update
 }
+
+function saveProgress() {
+    const taskItems = document.querySelectorAll('.task-item');
+    const completedTasks = document.querySelectorAll('.task-item.completed');
+
+    // Store the task items and completed tasks count in session storage
+    sessionStorage.setItem('tasks', JSON.stringify(Array.from(taskItems, item => item.textContent)));
+    sessionStorage.setItem('completedTasks', completedTasks.length);
+}
+
+// Load saved progress on page load
+// Load saved progress on page load
+window.addEventListener('load', function () {
+    const savedTasks = sessionStorage.getItem('tasks');
+    const completedTasksCount = parseInt(sessionStorage.getItem('completedTasks')) || 0;
+    const taskList = document.getElementById('task-list');
+
+    if (savedTasks) {
+        taskList.innerHTML = ''; // Clear existing tasks
+
+        const tasks = JSON.parse(savedTasks);
+        tasks.forEach(taskText => {
+            const taskItem = document.createElement('li');
+            taskItem.className = 'task-item';
+            taskItem.textContent = taskText;
+
+            // Add a remove button to each task
+            const removeButton = document.createElement('button');
+            removeButton.className = 'remove-btn';
+            removeButton.textContent = 'Remove';
+
+            // Add a click event listener to the remove button
+            removeButton.addEventListener('click', function () {
+                taskItem.remove();
+                updateProgressBar();
+                saveProgress();
+            });
+
+            taskItem.appendChild(removeButton);
+            taskList.appendChild(taskItem);
+        });
+
+        // Set completed class for completed tasks
+        const completedTasks = document.querySelectorAll('.task-item');
+        for (let i = 0; i < completedTasksCount; i++) {
+            completedTasks[i].classList.add('completed');
+        }
+
+        updateProgressBar(); // Update progress bar based on loaded data
+    }
+});

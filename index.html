@@ -8,31 +8,33 @@
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </head>
 <body>
+    <h1>PROGRESS</h1>
     <div id="progress-bar">
         <div id="completion-bar"></div>
     </div>
-    <h1>PROGRESS</h1>
     <div id="main-container"></div>
     <div id="introduction">
     <h3>A task management system that allows you to effortlessly add and remove tasks.</h3>
     <h3>Simply click on a task once completed, and the progress bar will update automatically.</h3>
     <h3>Additionally, there's a built-in 30-minute timer for each task to help you stay on track.</h3>
     </div>
-    <button id="play-button" onclick="togglePomodoro()">&#128472;</button>
+    <div id="pomodoro-container">
+        <div id="timer">
+            30:00
+        </div>
+        <div id="controls">
+            <button id="reset" onclick="togglePomodoro()">Reset</button>
+            <button id="start" onclick="startPomodoro()">Start</button>
+            <button id="stop" onclick="stopPomodoro()">Stop</button>
+        </div>
+    </div>
     <div id="task-container">
         <form id="tasksL" onsubmit="submitForm(event);">
-        <h1>TASKS</h1>
+        <h1>tasks</h1>
         <input type="text" id="task-input" placeholder="Add a new task...">
         <button id="add-btn" onclick="addTask()">Add Task</button>
         <ul id="task-list"></ul>
         </form>
-    </div>
-    <div id="pomodoro-container">
-        <div id="timer"></div>
-        <div id="controls">
-            <button id="start" onclick="startPomodoro()">Start</button>
-            <button id="stop" onclick="stopPomodoro()">Stop</button>
-        </div>
     </div>
     <audio id="audio-player" src="was-that-so-hard.mp3"></audio>
     <script src="script.js"></script>
@@ -98,7 +100,6 @@
 
         function togglePomodoro() {
             const pomodoroContainer = document.getElementById('pomodoro-container');
-            pomodoroContainer.style.display = (pomodoroContainer.style.display === 'none' || pomodoroContainer.style.display === '') ? 'block' : 'none';
             timerMinutes = 30;
             timerSeconds = 0;
             updateTimerDisplay();  // Update timer display
